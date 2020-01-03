@@ -1,0 +1,19 @@
+{
+  "name": "sasauthor",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "jtaibi",
+  "license": "MIT",
+  "scripts": {
+    "start": "node_modules/nodemon/bin/nodemon.js src/index.js"
+  },
+  "dependencies": {
+    "@hapi/joi": "16.1.8",
+    "cors": "^2.8.5",
+    "express": "4.17.1",
+    "http-errors": "^1.7.3",
+    "http-status": "^1.4.2",
+    "mongoose": "5.8.3",
+    "nodemon": "2.0.2"
+  }
+}

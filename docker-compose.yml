@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+  mongo:
+    image: mongo
+    ports:
+      - '27017:27017'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: root
+      MONGO_INITDB_ROOT_PASSWORD: example
+    volumes:
+      - ./db-data:/var/lib/mongo/data
+    logging:
+      driver: none
+
+  server:
+    build: ./docker
+    ports:
+      - '5000:5000'
+    environment:
+      MONGO_URI: mongodb://root:example@mongo/admin
+      SALT: 10
+      PORT: 5000
+    volumes:
+      - ./:/Documents/sasauthor/
+    depends_on:
+      - mongo
+    command: ['yarn', 'start',]
